@@ -1,0 +1,62 @@
+<ion-menu [content]="content">
+
+    <ion-toolbar>
+        <ion-title>Actions</ion-title>
+    </ion-toolbar>
+
+    <ion-content>
+        <ion-list *ngIf="robot === null">
+            <ion-item>First select a robot! </ion-item>
+        </ion-list>
+        <ion-list *ngIf="robot !== null">
+            <ion-item-divider light>Change mode</ion-item-divider>
+            <button menuClose (click)="menu.close();handleMenuAction('CHANGE_MODE', 'passive')" ion-item>
+                Passive mode
+            </button>
+            <button menuClose (click)="menu.close();handleMenuAction('CHANGE_MODE', 'active')" ion-item>
+                Full control mode
+            </button>
+            <button menuClose (click)="menu.close();handleMenuAction('CHANGE_MODE', 'safe')" ion-item>
+                Safe mode
+            </button>
+            <button menuClose (click)="menu.close();handleMenuAction('CHANGE_MODE', 'cleaning')" ion-item>
+                Cleaning mode
+            </button>
+            <button menuClose (click)="menu.close();handleMenuAction('CHANGE_MODE', 'docking')" ion-item>
+                Docking mode
+            </button>
+
+            <ion-item-divider light>Robot</ion-item-divider>
+            <button (click)="menu.close();handleMenuAction('TOOT')" menuClose ion-item>
+                Beep!
+            </button>
+            <button (click)="menu.close();handleMenuAction('RESET')" menuClose ion-item>
+                Reset
+            </button>
+            <button menuClose (click)="menu.close();handleLogout()" ion-item>
+                Logout
+            </button>
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+
+<ion-navbar hideBackButton *ngIf="robot !== null">
+    <button menuToggle>
+        <ion-icon name='menu'></ion-icon> Actions
+    </button>
+
+    <ion-title>{{title}}</ion-title>
+
+    <ion-buttons end>
+        <div>
+            <span class="mode-icon mode-icon-{{mode}}"></span> {{modeTitles[mode]}} mode
+        </div>
+    </ion-buttons>
+</ion-navbar>
+
+<ion-content #content>
+    <login id="login" [handle-submit]="handleLogin.bind(this)" *ngIf="robot === null"></login>
+
+    <dashboard id="dashboard" *ngIf="robot !== null" [mode]="mode" [robot]="robot"></dashboard>
+</ion-content>

@@ -1,0 +1,11 @@
+<ion-list>
+    <ion-item class="item child-item" *ngFor="#item of storage.logs">
+        <div class="item-inner">
+            <ion-badge item-right>{{item.date | date : 'dd.mm.YYYY H:i:s'}}</ion-badge>
+
+            <ion-label>
+                {{item.message}}
+            </ion-label>
+        </div>
+    </ion-item>
+</ion-list>

@@ -1,0 +1,55 @@
+<div class="dashboard">
+
+  <div class="actionbuttons-container" *ngIf="mode === 'active' || mode === 'safe'">
+    <div class="actionbuttons actionbuttons-go">
+      <button fab fab-center class="actionbutton--go" #actionbutton_go
+              (mousedown)="handleButtonTouchStart('STRAIGHT_FORWARD')"
+              (mouseup)="handleButtonTouchEnd('STRAIGHT_FORWARD')"
+              (touchstart)="handleButtonTouchStart('STRAIGHT_FORWARD')"
+              (touchend)="handleButtonTouchEnd('STRAIGHT_FORWARD')">
+        <ion-icon name='arrow-up'></ion-icon>
+      </button>
+    </div>
+
+    <div class="actionbuttons actionbuttons-middle">
+      <button fab fab-left class="actionbutton--left" #actionbutton_left
+              (mousedown)="handleButtonTouchStart('LEFT')"
+              (mouseup)="handleButtonTouchEnd('LEFT')"
+              (touchstart)="handleButtonTouchStart('LEFT')"
+              (touchend)="handleButtonTouchEnd('LEFT')">
+        <ion-icon name='arrow-back'></ion-icon>
+      </button>
+      <!--<button fab fab-center (click)="handleToot($event)">
+        <ion-icon name='megaphone'></ion-icon>
+      </button>-->
+      <button fab fab-right class="actionbutton--right" #actionbutton_right
+              (mousedown)="handleButtonTouchStart('RIGHT')"
+              (mouseup)="handleButtonTouchEnd('RIGHT')"
+              (touchstart)="handleButtonTouchStart('RIGHT')"
+              (touchend)="handleButtonTouchEnd('RIGHT')">
+        <ion-icon name='arrow-forward'></ion-icon>
+      </button>
+    </div>
+
+    <div class="actionbuttons actionbuttons-back">
+      <button fab fab-bottom fab-center class="actionbutton--back" #actionbutton_turn
+              (mousedown)="handleButtonTouchStart('TURN')"
+              (mouseup)="handleButtonTouchEnd('TURN')"
+              (touchstart)="handleButtonTouchStart('TURN')"
+              (touchend)="handleButtonTouchEnd('TURN')">
+        <ion-icon name='arrow-down'></ion-icon>
+      </button>
+    </div>
+  </div>
+
+  <div id="stream">
+    <!--<video class="rounded centered hide" id="remotevideo" autoplay></video>
+    <img src="img/dummyvideobg.jpg" />-->
+    <img src="{{robot.cameraUrl}}" style="width:100%;height:auto;" />
+  </div>
+
+<!--
+  <h2>Log list <button class="clearLogs" danger round small (click)="clearLog($event)">Clear</button></h2>
+  <log-view></log-view>
+  -->
+</div>

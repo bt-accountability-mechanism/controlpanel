@@ -1,0 +1,20 @@
+<div class="login" padding>
+
+  <h3>Please select the robot you like to control</h3>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Please select your robot: </ion-label>
+      <ion-select [(ngModel)]="robot">
+        <ion-option *ngFor="let r of robots" value={{r.id}}>{{r.name}}</ion-option>
+      </ion-select>
+
+    </ion-item>
+  </ion-list>
+
+  <p>
+    <button block (click)="handleSubmit($event)">
+      Start controlling the robot!
+    </button>
+  </p>
+</div>

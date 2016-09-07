@@ -1,0 +1,142 @@
+.mode {
+  font-size:14px;
+  font-weight:normal;
+  font-style:italic;
+}
+
+$modeSize : 10px;
+.mode-icon {
+  width:$modeSize;
+  height: $modeSize;
+  border-radius:$modeSize / 2;
+  background-color:black;
+  display:inline-block;
+}
+
+.mode-icon-safe {
+  background-color:green;
+}
+
+.mode-icon-active {
+  background-color:yellow;
+}
+
+.mode-icon-cleaning {
+  background-color:purple;
+}
+
+.mode-icon-docking {
+  background-color:blue;
+}
+
+.mode-icon-passive {
+  background-color:red;
+}
+
+.menuicon-show-true {
+  display:block;
+}
+
+.menuicon-show-false {
+  display:none;
+}
+
+.dashboard {
+
+  $button-weight : 10rem;
+
+  scroll-content {
+    padding:0;
+  }
+
+  p {
+    margin: 20px 0;
+    line-height: 22px;
+    font-size: 16px;
+  }
+
+  video {
+    width:100%;
+    height:auto;
+  }
+
+  button {
+
+    &.clearLogs {
+      display:inline;
+      margin:auto;
+      float:right;
+    }
+  }
+
+  .actionbuttons-container {
+    position:absolute;
+    height:100%;
+    width:100%;
+  }
+
+  .actionbuttons {
+
+    button:active {
+      background-color:rgba(217,217,217,0.4);
+    }
+
+    .button-fab {
+      width:100%;
+      border-radius:0;
+      background-color:rgba(217,217,217,0.2);
+      color:#000;
+      position:fixed;
+      font-size:4rem;
+
+      -webkit-transition: opacity 1s ease-in-out;
+      -moz-transition: opacity 1s ease-in-out;
+      -ms-transition: opacity 1s ease-in-out;
+      -o-transition: opacity 1s ease-in-out;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .actionbutton--go {
+      left:0;
+      margin-left:0;
+      margin-top:0;
+      height:$button-weight;
+      z-index:2;
+    }
+
+    .actionbutton--back {
+      left:0;
+      bottom:0;
+      margin-left:0;
+      margin-bottom:0;
+      height:$button-weight;
+      z-index:2;
+    }
+
+    .actionbutton--right {
+      left:auto;
+      height:100%;
+      width:inherit;
+      top:0;
+      right:0;
+      margin:0;
+      width:$button-weight;
+      z-index:1;
+    }
+
+    .actionbutton--left {
+      left:0;
+      height:100%;
+      width:inherit;
+      top:0;
+      margin:0;
+      width:$button-weight;
+      z-index:1;
+    }
+
+    [fab-center] {
+
+    }
+  }
+
+}
